@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEON | The Future of Tech</title>
+    <meta name="description" content="Experience the next generation of premium gadgets. Smartphones, wearables, and computing reinvented at NEON.">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header id="main-header">
+        <div class="container nav-wrapper">
+            <nav>
+                <div class="logo"><a href="#home">NEON</a></div>
+                
+                <div class="nav-links">
+                    <a href="#home">Nexus</a>
+                    <a href="#shop">Market</a>
+                    <a href="#about">Origins</a>
+                </div>
+                
+                <div class="nav-icons">
+                    <button id="search-toggle"><i class="fa-solid fa-satellite-dish"></i></button>
+                    <button id="orders-toggle"><i class="fa-solid fa-terminal"></i></button>
+                    <button id="cart-toggle" class="cart-icon">
+                        <i class="fa-solid fa-microchip"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main id="view-container">
+        <!-- SPA Views Injected Here -->
+        <div style="display: flex; height: 80vh; align-items: center; justify-content: center; opacity: 0.2;" id="neon-loader">
+            <h2 style="font-family: var(--heading-font); text-transform: uppercase; letter-spacing: 5px;">Initializing System...</h2>
+        </div>
+    </main>
+
+    <!-- Templates -->
+    <div id="view-templates" style="display: none;">
+        
+        <!-- Home View -->
+        <div id="tpl-home">
+            <section class="hero">
+                <div class="hero-visual">
+                    <img src="assets/hero_service.png" alt="Futuristic Tech Banner">
+                </div>
+                <div class="container">
+                    <div class="hero-content">
+                        <span class="hero-tag">System Version 2.0.26</span>
+                        <h1>Future, <br> <span style="color: var(--primary);">Unveiled.</span></h1>
+                        <p>Bridging the gap between human intuition and machine precision. Explore the 2026 Core Collection.</p>
+                        <button class="btn-neon" onclick="window.location.hash='#shop'">Initialize Market</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="container">
+                    <div class="categories-grid">
+                        <div class="category-card" onclick="window.location.hash='#shop?cat=smartphones'">
+                            <img src="assets/smartphone.png" alt="Neural Phones">
+                            <div class="category-info">
+                                <span>Core Device</span>
+                                <h3>Smartphones</h3>
+                            </div>
+                        </div>
+                        <div class="category-card" onclick="window.location.hash='#shop?cat=wearables'">
+                            <img src="assets/watch.png" alt="Biometric Wearables">
+                            <div class="category-info">
+                                <span>Wearable Tech</span>
+                                <h3>Wearables</h3>
+                            </div>
+                        </div>
+                        <div class="category-card" onclick="window.location.hash='#shop?cat=computing'">
+                            <img src="assets/laptop.png" alt="Quantum Computing">
+                            <div class="category-info">
+                                <span>Power Systems</span>
+                                <h3>Computing</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" style="background: #080808; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+                <div class="container">
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                            <h4>Instant Sync</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">Real-time neural cloud integration across all devices.</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                            <h4>Quantum Secure</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">End-to-end encryption built into every hardware layer.</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fa-solid fa-earth-asia"></i></div>
+                            <h4>Global Link</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">Complimentary satellite shipping to any terminal on Earth.</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fa-solid fa-recycle"></i></div>
+                            <h4>Bio-Degradable</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">90% sustainable materials without compromising power.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Featured Core</h2>
+                        <button class="btn-neon" onclick="window.location.hash='#shop'" style="padding: 10px 25px; font-size: 0.7rem;">View All</button>
+                    </div>
+                    <div class="product-grid" id="featured-products">
+                        <!-- Dynamic Featured Items -->
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Shop View -->
+        <div id="tpl-shop">
+            <section class="section">
+                <div class="container">
+                    <div class="section-header">
+                        <h1>Marketplace</h1>
+                        <div class="filters">
+                            <button class="filter-btn active" data-cat="all">All Systems</button>
+                            <button class="filter-btn" data-cat="smartphones">Phones</button>
+                            <button class="filter-btn" data-cat="wearables">Wearables</button>
+                            <button class="filter-btn" data-cat="computing">Computing</button>
+                            <button class="filter-btn" data-cat="audio">Audio</button>
+                        </div>
+                    </div>
+                    <div class="product-grid" id="shop-product-list">
+                        <!-- Dynamic Product List -->
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Product Detail View -->
+        <div id="tpl-product">
+            <section class="section">
+                <div class="container" id="product-detail-container">
+                    <!-- Dynamic Detail Content -->
+                </div>
+            </section>
+        </div>
+
+        <!-- About View -->
+        <div id="tpl-about">
+            <section class="section">
+                <div class="container">
+                    <div style="max-width: 800px; margin: 10vh auto; text-align: center;" class="animate">
+                        <h1 style="font-size: 4rem; margin-bottom: 2rem;">NEON <span style="font-weight: 300;">ORIGINS</span></h1>
+                        <p style="font-size: 1.25rem; opacity: 0.8; margin-bottom: 3rem;">Founded in 2024, NEON was born from a simple obsession: Why should high-tech feel cold? We believe technology is the ultimate expression of human creativity, designed to empower rather than replace.</p>
+                        <hr style="border: 0; border-top: 1px solid var(--border); margin: 3rem 0;">
+                        <p style="font-family: var(--heading-font); letter-spacing: 5px; text-transform: uppercase;">Built by Tech Enthusiasts, for the Future.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+    <!-- Global Components Overlays -->
+    <div class="search-overlay" id="search-overlay">
+        <button id="close-search" style="position: absolute; top: 50px; right: 50px; font-size: 2rem; color: #fff;"><i class="fa-solid fa-xmark"></i></button>
+        <div class="container">
+            <input type="text" id="search-input" class="search-field" placeholder="Targeting System: Enter Parameter...">
+            <div class="product-grid" id="search-results" style="margin-top: 60px;"></div>
+        </div>
+    </div>
+
+    <div class="overlay" id="cart-overlay"></div>
+    <div class="drawer" id="cart-drawer">
+        <div class="drawer-header">
+            <h3>Active Manifest</h3>
+            <button id="close-cart" style="color: #fff; font-size: 1.5rem;"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items-list"></div>
+        <div class="cart-footer">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 30px; font-size: 1.2rem;">
+                <span>Subtotal:</span>
+                <span id="cart-total-price">₹0.00</span>
+            </div>
+            <button class="btn-neon" id="checkout-btn" style="width: 100%;">Finalize Transaction</button>
+        </div>
+    </div>
+
+    <div class="overlay" id="orders-overlay"></div>
+    <div class="drawer" id="orders-drawer" style="right: -100%;">
+        <div class="drawer-header">
+            <h3>Protocol Logs</h3>
+            <button id="close-orders" style="color: #fff; font-size: 1.5rem;"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-items" id="orders-list"></div>
+    </div>
+
+    <footer style="background: #020202; border-top: 1px solid var(--border); padding: 80px 0;">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 40px;">
+                <div class="logo" style="font-size: 2.5rem;">NEON</div>
+                <div class="nav-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Support</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+            <p style="margin-top: 50px; opacity: 0.4; font-size: 0.8rem; text-align: center;">&copy; 2026 NEON TECHNOLOGY SYSTEMS. ESTABLISHED IN BHARAT.</p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
